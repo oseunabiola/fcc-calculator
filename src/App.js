@@ -27,22 +27,14 @@ const App = () => {
       expression.endsWith("/")
     ) {
       if (value !== "-") {
-        const expArray = expression.split("");
-        let newExp = expArray
-          .filter((char) => char !== expArray[expArray.length - 1])
-          .join("")
-          .toString();
+        let newExp = expression.replace(expression[expression.length - 1], "");
         if (
           newExp.endsWith("-") ||
           newExp.endsWith("+") ||
           newExp.endsWith("x") ||
           newExp.endsWith("/")
         ) {
-          const expArray = newExp.split("");
-          newExp = expArray
-            .filter((char) => char !== expArray[expArray.length - 1])
-            .join("")
-            .toString();
+          newExp = expression.replace(expression[expression.length - 1], "");
         }
         setExpression(`${newExp}${value}`);
 
